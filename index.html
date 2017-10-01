@@ -1,37 +1,20 @@
 <!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Quote Machine</title>
-  
-  
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
-
-  
-  
-</head>
-
+<html>
 <body>
-  <div class="container-fluid">
-  <div class="jumbotron">
-  <h1 class="display-3">Quote Machine</h1>
-  <p class="lead">Click the "New Quote" button to get a new quote</p>
-  <hr class="my-4">
-  <blockquote class="blockquote">
-  <p class="mb-0">
-    <div class="qte">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</div>
-    </p>
-  <footer class="blockquote-footer">
-    <div class="author">Someone famous</div></footer>
-</blockquote>
-  <p class="lead">
-    <a id="getQuote" class="btn btn-primary btn-lg" href="#" role="button">New Quote</a>
-  </p>
-</div>
-</div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-    <script  src="js/index.js"></script>
-
+    <div id="demo">
+        <h1>The XMLHttpRequest Object</h1>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "Data.csv", true);
+            xhttp.send();
+        }
+    </script>
 </body>
-</html>
